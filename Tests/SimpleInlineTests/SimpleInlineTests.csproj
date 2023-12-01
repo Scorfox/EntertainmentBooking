@@ -11,5 +11,9 @@
 		<NoWarn>1701;1702;8032;NU1803</NoWarn>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Src\Base\Base.Objects\Base.Objects.csproj" />
+	</ItemGroup>
+
 
 </Project>
