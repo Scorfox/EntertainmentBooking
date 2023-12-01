@@ -1,4 +1,5 @@
 ﻿using Base.Objects;
+using Base.Objects.Helpers;
 using Core.Logic.Consumers;
 using MassTransit;
 using MassTransit.Monitoring;
@@ -13,7 +14,7 @@ namespace Core.Helpers
         public static void ConfigureBus(IRabbitMqBusFactoryConfigurator cfg)
         {
             cfg.Host(new Uri($"rabbitmq://{BookingConstants.RabbitMqHost}:{BookingConstants.RabbitMqPort}/"), ConfigureHost);
-            //cfg.Host(new Uri($"http://{BookingConstants.RabbitMqHost}:1{BookingConstants.RabbitMqPort}"), ConfigureHost);
+            
             BuildEndpoints(cfg);
         }
 
@@ -41,6 +42,8 @@ namespace Core.Helpers
         {
             endpoint.Lazy = true;
             endpoint.PrefetchCount = 20;
+            endpoint.ConfigureConsumeTopology = false;
+            endpoint.Bind(RabbitMqChannels.DataServiceChannelBind);
             endpoint.Consumer<DataAccessConsumer>();
         }
 
