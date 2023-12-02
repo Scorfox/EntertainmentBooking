@@ -1,12 +1,16 @@
-﻿namespace SimpleInlineTests
+﻿using Base.Objects.Helpers;
+
+namespace SimpleInlineTests
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             // Check debugger display
-;
-            Console.WriteLine("Hello, World!");
+            ;
+            var str = Cryptography.Encrypt("r4e3w2q1AZ");
+            Console.WriteLine(str);
+            Console.WriteLine(Cryptography.Decrypt(str));
         }
     }
 }

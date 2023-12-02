@@ -1,13 +1,24 @@
-﻿namespace Core;
+﻿using Core.Helpers;
+using MassTransit;
+
+namespace Core;
 
 internal class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
-        WebApplicationBuilder builder = WebApplication.CreateBuilder();
-        
-        var application = builder.Build();
+        var busControl = Bus.Factory.CreateUsingRabbitMq(RabbitMqConfigurator.ConfigureBus);
 
-        application.Run();
+        using var ct = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+        await busControl.StartAsync(ct.Token);
+
+        try
+        {
+            Console.WriteLine("Bus was started");
+        }
+        finally
+        {
+            await busControl.StopAsync(CancellationToken.None);
+        }
     }
 }
