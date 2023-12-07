@@ -6,28 +6,28 @@ namespace Base.Objects
     /// Базовый класс для всех объектов системы
     /// </summary>
     [DebuggerDisplay("Id={Id} Deleted={IsDeleted}")]
-    public abstract class BookingEntity
+    public abstract class Entity
     {
         /// <summary>
         /// Идентификатор
         /// </summary>
         public Guid Id { get; set; }
         /// <summary>
-        /// Создвтель объекта
+        /// Id пользователя, создавшего объект
         /// </summary>
-        public string CreatedUser { get; set; }
+        public string CreatedByUserID { get; set; }
         /// <summary>
         /// Дата создания сущности
         /// </summary>
         public DateTime CreatedAt { get; set; }
         /// <summary>
-        /// Пользователь сделавший последнее обновление
+        /// Id пользователя, сделавшего последнее обновление
         /// </summary>
-        public string UpdatedUser { get; set; }
+        public string UpdatedByUserId { get; set; }
         /// <summary>
         /// Дата изменения сущности
         /// </summary>
-        public DateTime Updated { get; set; }
+        public DateTime UpdatedAt { get; set; }
         /// <summary>
         /// Флаг удалено
         /// </summary>
