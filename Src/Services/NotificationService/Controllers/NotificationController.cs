@@ -4,44 +4,38 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using MimeKit;
 using Notification.API;
+using Notification.API.Interface;
+using Notification.API.Models;
 
 namespace Notification.Controllers
 {
-    [Route("[controller]")]
     [ApiController]
-    public class NotificationController : ControllerBase
+    [Route("[controller]")]
+    public class NotificationController : Controller
     {
-        private readonly SmtpService _smtpService;
+        public readonly INotificationService _notificationService;
 
-        public NotificationController(IConfiguration configuration)
+        public NotificationController(INotificationService notificationService)
         {
-            var fromEmail = configuration["appsettings:FromEmail"];
-            var fromName = configuration["appsettings:FromName"];
-            var smtpServer = configuration["appsettings:Host"];
-            var smtpPort = int.Parse(configuration["appsettings:Port"]);
-            var sender = configuration["appsettings:Username"];
-            var senderPassword = configuration["appsettings:Password"];
-
-            _smtpService = new SmtpService(fromEmail, fromName, smtpServer, smtpPort, sender, senderPassword);
+            _notificationService = notificationService;
         }
 
-        [HttpPost("Send")]
-        public async Task<IActionResult> SendEmail(string recipient, string subject, string body)
+        [HttpPost]
+        public async Task<IActionResult> Send(MailRequest mailRequest)
         {
-            if (string.IsNullOrEmpty(recipient) || string.IsNullOrEmpty(subject) || string.IsNullOrEmpty(body))
-            {
-                return BadRequest("Все поля обязательны для заполнения.");
-            }
-
             try
             {
-                await _smtpService.SendEmailAsync(recipient, subject, body);
-                return Ok("Сообщение отправлено.");
-            }
-            catch (Exception ex)
+                await _notificationService.SendMailAsync(mailRequest);
+                return Ok();
+            } catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Ошибка отправки сообщения.");
+                throw ex;
             }
+        }
+
+        public IActionResult Index()
+        {
+            return View();
         }
     }
 }

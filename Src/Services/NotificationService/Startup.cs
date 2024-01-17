@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Notification.API;
+using Notification.API.Interface;
+using Notification.API.Models;
 
 namespace Notification
 {
@@ -28,7 +30,8 @@ namespace Notification
             // Register services
             services.AddRazorPages();
             services.AddSingleton(Configuration);
-            services.AddTransient<SmtpService>();
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.AddTransient<INotificationService, NotificationSendService>();
 
             // Register repositories
             //None
