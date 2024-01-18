@@ -1,9 +1,8 @@
-﻿using MediatR;
+﻿namespace Booking.Application.Features.ClientFeatures;
 
-namespace Booking.Application.Features.UserFeatures;
-
-public sealed record CreateUserRequest : IRequest<CreateUserResponse>
+public sealed record CreateClientResponse
 {
+    public Guid Id { get; set; }
     public string Email { get; set; }
     public string Login { get; set; }
     public string Password { get; set; }
@@ -13,5 +12,4 @@ public sealed record CreateUserRequest : IRequest<CreateUserResponse>
     public string MiddleName { get; set; }
     
     public string PhoneNumber { get; set; }
-    public string RoleName { get; set; }
 }

@@ -16,7 +16,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
         _options = options.Value;
     }
     
-    public string GenerateToken(string email)
+    public string GenerateToken(string email, string roleName)
     {
         var key = Encoding.ASCII.GetBytes(_options.SecretKey);
         var tokenDescriptor = new SecurityTokenDescriptor
@@ -26,7 +26,8 @@ public class JwtTokenGenerator : IJwtTokenGenerator
                 new Claim("Id", Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, email),
                 new Claim(JwtRegisteredClaimNames.Jti,
-                    Guid.NewGuid().ToString())
+                    Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.Role, roleName),
             }),
             Expires = DateTime.UtcNow.AddMinutes(5),
             Issuer = _options.Issuer,

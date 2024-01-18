@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Booking.Application.Features.AuthFeatures;
 
-public sealed class AuthenticateHandler : IRequestHandler<AuthenticateRequest, bool>
+public sealed class AuthenticateHandler : IRequestHandler<AuthenticateRequest, (bool Success, string? RoleName)>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IUserRepository _userRepository;
@@ -20,9 +20,9 @@ public sealed class AuthenticateHandler : IRequestHandler<AuthenticateRequest, b
         _mapper = mapper;
     }
     
-    public async Task<bool> Handle(AuthenticateRequest request, CancellationToken cancellationToken)
+    public async Task<(bool Success, string? RoleName)> Handle(AuthenticateRequest request, CancellationToken cancellationToken)
     {
-        var user = await _userRepository.FindByEmail(request.Email, cancellationToken);
+        var user = await _userRepository.FindByEmailAsync(request.Email, cancellationToken);
 
         if (user == null)
             throw new NotFoundException($"User with email {request.Email} not found");
@@ -30,6 +30,6 @@ public sealed class AuthenticateHandler : IRequestHandler<AuthenticateRequest, b
         var result = new PasswordHasher<User>().VerifyHashedPassword
             (user, user.PasswordHash, request.Password);
 
-        return result == PasswordVerificationResult.Success;
+        return (result == PasswordVerificationResult.Success, user.Role.Name);
     }
 }

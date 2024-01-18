@@ -14,6 +14,7 @@ public static class ServiceExtensions
         var connectionString = configuration.GetConnectionString("PostgreSQL");
         
         services.AddDbContext<DataContext>(opt => { opt.UseNpgsql(connectionString); });
+        services.AddScoped<IRoleRepository, RoleRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IUserRepository, UserRepository>();
     }

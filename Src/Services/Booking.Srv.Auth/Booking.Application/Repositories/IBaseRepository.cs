@@ -1,8 +1,6 @@
-﻿using Booking.Auth.Srv.Data.Common;
+﻿namespace Booking.Application.Repositories;
 
-namespace Booking.Application.Repositories;
-
-public interface IBaseRepository<T> where T : BaseEntity
+public interface IBaseRepository<T> where T : class
 {
     void Create(T entity);
     void Update(T entity);

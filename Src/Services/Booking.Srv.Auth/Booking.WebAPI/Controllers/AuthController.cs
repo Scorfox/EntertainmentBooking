@@ -3,6 +3,7 @@ using Booking.Application.Features.UserFeatures;
 using Booking.WebAPI.Models;
 using Booking.WebAPI.Services;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Booking.WebAPI.Controllers;
@@ -21,10 +22,11 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost]
+    [AllowAnonymous]
     public async Task<ActionResult<TokenDto>> Login(AuthenticateRequest request,
         CancellationToken cancellationToken)
     {
-        var authSuccess = await _mediator.Send(request, cancellationToken);
-        return authSuccess ? Ok(_jwtTokenGenerator.GenerateToken(request.Email)) : Unauthorized();
+        var response = await _mediator.Send(request, cancellationToken);
+        return response.Success ? Ok(_jwtTokenGenerator.GenerateToken(request.Email, response.RoleName)) : Unauthorized();
     }
 }

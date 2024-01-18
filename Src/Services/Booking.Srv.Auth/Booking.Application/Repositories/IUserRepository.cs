@@ -4,5 +4,6 @@ namespace Booking.Application.Repositories;
 
 public interface IUserRepository : IBaseRepository<User>
 {
-    Task<User?> FindByEmail(string email, CancellationToken token);
+    Task<User?> FindByEmailAsync(string email, CancellationToken token);
+    Task<bool> HasAnyByEmailAsync(string email, CancellationToken token);
 }

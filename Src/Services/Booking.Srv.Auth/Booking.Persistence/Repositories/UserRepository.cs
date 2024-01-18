@@ -5,14 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Booking.Persistence.Repositories;
 
-public class UserRepository : BaseRepository<User>, IUserRepository
+public class UserRepository(DataContext context) : BaseRepository<User>(context), IUserRepository
 {
-    public UserRepository(DataContext context) : base(context)
+    public Task<User?> FindByEmailAsync(string email, CancellationToken cancellationToken)
     {
+        return Context.Users.Include(e => e.Role).SingleOrDefaultAsync(x => x.Email == email, cancellationToken);
     }
-    
-    public Task<User?> FindByEmail(string email, CancellationToken cancellationToken)
+
+    public Task<bool> HasAnyByEmailAsync(string email, CancellationToken cancellationToken)
     {
-        return Context.Users.FirstOrDefaultAsync(x => x.Email == email, cancellationToken);
+        return Context.Users.AnyAsync(x => x.Email == email, cancellationToken);
     }
 }

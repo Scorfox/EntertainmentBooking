@@ -9,7 +9,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
 {
     protected readonly DataContext Context;
 
-    public BaseRepository(DataContext context)
+    protected BaseRepository(DataContext context)
     {
         Context = context;
     }

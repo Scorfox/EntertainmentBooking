@@ -6,16 +6,16 @@ using Booking.Auth.Srv.Data.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
-namespace Booking.Application.Features.UserFeatures;
+namespace Booking.Application.Features.ClientFeatures;
 
-public sealed class CreateUserHandler : IRequestHandler<CreateUserRequest, CreateUserResponse>
+public sealed class CreateClientHandler : IRequestHandler<CreateClientRequest, CreateClientResponse>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IRoleRepository _roleRepository;
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
 
-    public CreateUserHandler(IUnitOfWork unitOfWork, IRoleRepository roleRepository, IUserRepository userRepository, IMapper mapper)
+    public CreateClientHandler(IUnitOfWork unitOfWork, IRoleRepository roleRepository, IUserRepository userRepository, IMapper mapper)
     {
         _unitOfWork = unitOfWork;
         _roleRepository = roleRepository;
@@ -23,24 +23,18 @@ public sealed class CreateUserHandler : IRequestHandler<CreateUserRequest, Creat
         _mapper = mapper;
     }
     
-    public async Task<CreateUserResponse> Handle(CreateUserRequest request, CancellationToken cancellationToken)
+    public async Task<CreateClientResponse> Handle(CreateClientRequest request, CancellationToken cancellationToken)
     {
-        if (!Roles.GetAllRolesWithIds().Keys.Contains(request.RoleName))
-            throw new NotFoundException($"Role with name {request.RoleName} not found");
-        
         if (await _userRepository.HasAnyByEmailAsync(request.Email, cancellationToken))
             throw new BadRequestException($"User with {request.Email} already exists");
             
         var user = _mapper.Map<User>(request);
-        
-        var role = await _roleRepository.GetByNameAsync(request.RoleName, cancellationToken);
-        
-        user.Role = role;
+        user.Role = (await _roleRepository.GetByNameAsync(Roles.Client, cancellationToken))!;
         user.PasswordHash = new PasswordHasher<User>().HashPassword(user, request.Password);
         
         _userRepository.Create(user);
         await _unitOfWork.Save(cancellationToken);
 
-        return _mapper.Map<CreateUserResponse>(user);
+        return _mapper.Map<CreateClientResponse>(user);
     }
 }
