@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Booking.Donmain
+namespace Booking.Domain
 {
     /// <summary>
     /// Базовый класс для всех объектов системы
