@@ -1,8 +1,8 @@
-﻿using Tables;
+﻿using Booking.Donmain;
 
-namespace Reservations
+namespace Booking.Domain
 {
-    public abstract class ReservationEntity
+    public class Reservation : BaseEntity
     {
         /// <summary>
         /// Идентификатор
@@ -16,6 +16,6 @@ namespace Reservations
         public Guid WhoCancelledId { get; set; }
 
         //настройка связей
-        public TableEntity Table { get; set; }
+        public Table Table { get; set; }
     }
 }

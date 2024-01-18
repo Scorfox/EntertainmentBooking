@@ -1,8 +1,6 @@
-﻿using Reservations;
-
-namespace Tables
+﻿namespace Domain
 {
-    public abstract class TableEntity
+    public class Table
     {
         /// <summary>
         /// Идентификатор
@@ -14,6 +12,6 @@ namespace Tables
         public int SeatsNumber { get; set; }
 
         //настройка связей
-        public ICollection<ReservationEntity> Reservations { get; set; }
+        public ICollection<Reservation> Reservations { get; set; }
     }
 }
