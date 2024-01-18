@@ -29,13 +29,8 @@ namespace Notification.Controllers
                 return Ok();
             } catch (Exception ex)
             {
-                throw ex;
+                return BadRequest(ex.Message);
             }
-        }
-
-        public IActionResult Index()
-        {
-            return View();
         }
     }
 }

@@ -9,6 +9,7 @@ using Microsoft.OpenApi.Models;
 using Notification.API;
 using Notification.API.Interface;
 using Notification.API.Models;
+using Newtonsoft.Json;
 
 namespace Notification
 {
@@ -45,7 +46,7 @@ namespace Notification
             // Swagger
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Auth.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Notification.API", Version = "v1" });
             });
         }
 
@@ -58,7 +59,7 @@ namespace Notification
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Auth.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Notification.API v1"));
             }
 
             app.UseRouting();
