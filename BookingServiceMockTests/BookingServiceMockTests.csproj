@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk.Worker">
 
-  <PropertyGroup>
+	<PropertyGroup>
 
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 	<ItemGroup>
 		<Using Include="System" />
 		<Using Include="System.Collections" />
@@ -21,11 +21,13 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\Base\Base.Objects\Base.Objects.csproj" />
-	  <ProjectReference Include="..\Core.Logic\Core.Logic.csproj" />
+	  <ProjectReference Include="..\Src\Base\Base.Contracts\Base.Contracts.csproj" />
+	  <ProjectReference Include="..\Src\Services\Core\Core\Core.csproj" />
 	</ItemGroup>
+
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 		<NoWarn>1701;1702;8032;NU1803</NoWarn>
 	</PropertyGroup>

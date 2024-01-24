@@ -1,4 +1,8 @@
-﻿using Base.Objects.Helpers;
+﻿using Base.Contracts.RabbitMq.Events;
+using Base.Objects.Helpers;
+using Core.Helpers;
+using MassTransit;
+using SimpleInlineTests.Mock;
 
 namespace SimpleInlineTests
 {
@@ -6,11 +10,25 @@ namespace SimpleInlineTests
     {
         static void Main(string[] args)
         {
-            // Check debugger display
-            ;
-            var str = Cryptography.Encrypt("r4e3w2q1AZ");
-            Console.WriteLine(str);
-            Console.WriteLine(Cryptography.Decrypt(str));
+            var test = new RabbitMqPublisher();
+            
+            var user = Guid.NewGuid();
+            var table = Guid.NewGuid();
+
+            Console.Title = "TEST";
+            Console.WriteLine($"User : {user}");
+            
+            Console.WriteLine("Auth...");
+
+            test.UserAuthorized(user);
+
+            Console.WriteLine($"Table : {table}");
+            Console.WriteLine("Reserving...");
+
+            test.UserSelectTable(user, table);
+
+            Console.WriteLine("End...");
+            Console.ReadLine();
         }
     }
 }

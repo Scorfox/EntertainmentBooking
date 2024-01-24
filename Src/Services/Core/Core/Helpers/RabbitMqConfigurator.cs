@@ -7,7 +7,7 @@ using MassTransit.RabbitMqTransport.Configuration;
 
 namespace Core.Helpers
 {
-    internal class RabbitMqConfigurator
+    public class RabbitMqConfigurator
     {
         #region Public members
 
@@ -45,6 +45,7 @@ namespace Core.Helpers
             endpoint.ConfigureConsumeTopology = false;
             endpoint.Bind(RabbitMqChannels.DataServiceChannelBind);
             endpoint.Consumer<DataAccessConsumer>();
+            endpoint.Consumer<UserAuthorizedConsumer>();
         }
 
         #endregion
