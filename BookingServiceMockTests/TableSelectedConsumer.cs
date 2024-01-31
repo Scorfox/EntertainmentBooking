@@ -19,7 +19,8 @@ namespace BookingServiceMockTests
 
         public Task Consume(ConsumeContext<ITableSelected> context)
         {
-           _logger.Log(LogLevel.Error, $"DEBUG INFO: TABLE RESERVED ID {context?.Message?.TableId.ToString() ?? "!!!!!"}");
+           _logger.Log(LogLevel.Error, $"DEBUG INFO: TABLE RESERVED ID " +
+               $"{context?.Message?.TableId.ToString() ?? "!!!!!"}");
             return Task.CompletedTask;
         }
     }

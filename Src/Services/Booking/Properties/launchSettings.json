@@ -33,8 +33,13 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
+<<<<<<< Updated upstream
       "applicationUrl": "http://localhost:65458/",
       "sslPort": 44356
+=======
+      "applicationUrl": "http://localhost:54245/",
+      "sslPort": 44329
+>>>>>>> Stashed changes
     }
   }
 }
