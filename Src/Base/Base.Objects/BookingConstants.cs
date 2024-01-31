@@ -11,7 +11,8 @@ public sealed class BookingConstants
     private static readonly string RmqEncryptedPass = "3gE3isQQppgP9xyqoyoHgA==";
     public static string RabbitMqUser = "admin";
     public static string RabbitMqPass = Cryptography.Decrypt(RmqEncryptedPass);
-    public static string RabbitMqHost = "158.160.118.121";
+    public static string RabbitMqHost = "192.168.21.20";
+//    public static string RabbitMqHost = "158.160.118.121";
     public static string RabbitMqPort = "5672";
 
     //END_TODO 

@@ -1,0 +1,118 @@
+<mxfile host="Electron" modified="2023-12-05T14:04:51.768Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="Oml1Lti2iqdMnXmGvY1A" version="22.1.2" type="device">
+  <diagram name="Страница — 1" id="DDf3kt4ldKS9D3DV9dp_">
+    <mxGraphModel dx="1100" dy="990" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="5usyHx1cdEVdQFqIunDD-2" value="Граф работы ядра системы резервирования столиков. Реализация паттерна Saga" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;recursiveResize=0;container=1;collapsible=0;width=230;height=50;" parent="1" vertex="1">
+          <mxGeometry x="10" y="10" width="830" height="550" as="geometry" />
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="5usyHx1cdEVdQFqIunDD-2" source="5usyHx1cdEVdQFqIunDD-27" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="175" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-27" value="Получение активных заведений и свободных столиков" style="rounded=1;whiteSpace=wrap;html=1;" parent="5usyHx1cdEVdQFqIunDD-2" vertex="1">
+          <mxGeometry x="25" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="5usyHx1cdEVdQFqIunDD-2" source="5usyHx1cdEVdQFqIunDD-29" target="5usyHx1cdEVdQFqIunDD-27" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-29" value="Аутентификация&lt;br&gt;пройдена" style="ellipse;whiteSpace=wrap;html=1;" parent="5usyHx1cdEVdQFqIunDD-2" vertex="1">
+          <mxGeometry x="25" y="260" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="5usyHx1cdEVdQFqIunDD-2" source="5usyHx1cdEVdQFqIunDD-31" target="5usyHx1cdEVdQFqIunDD-35" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-31" value="Выбораны заведение и столик" style="ellipse;whiteSpace=wrap;html=1;rounded=1;" parent="5usyHx1cdEVdQFqIunDD-2" vertex="1">
+          <mxGeometry x="175" y="110" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-53" value="Бронирование&lt;br&gt;невозможно" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000099;fontStyle=1" parent="5usyHx1cdEVdQFqIunDD-2" source="5usyHx1cdEVdQFqIunDD-35" target="5usyHx1cdEVdQFqIunDD-42" edge="1">
+          <mxGeometry x="-0.2" y="20" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="5usyHx1cdEVdQFqIunDD-2" source="5usyHx1cdEVdQFqIunDD-35" target="5usyHx1cdEVdQFqIunDD-37" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="395" y="220" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-55" value="Столик&amp;nbsp;&lt;br&gt;забронирован" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000099;fontStyle=1" parent="5usyHx1cdEVdQFqIunDD-54" vertex="1" connectable="0">
+          <mxGeometry x="-0.2533" relative="1" as="geometry">
+            <mxPoint x="-40" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-35" value="Запрос в ресторан" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" parent="5usyHx1cdEVdQFqIunDD-2" vertex="1">
+          <mxGeometry x="355" y="110" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="5usyHx1cdEVdQFqIunDD-2" target="5usyHx1cdEVdQFqIunDD-39" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="395" y="330" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-37" value="Уведомление о подтверждение брони" style="whiteSpace=wrap;html=1;rounded=1;" parent="5usyHx1cdEVdQFqIunDD-2" vertex="1">
+          <mxGeometry x="335" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H9zFzPK9AL8MQnQGc6E7-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="5usyHx1cdEVdQFqIunDD-2" source="5usyHx1cdEVdQFqIunDD-39" target="H9zFzPK9AL8MQnQGc6E7-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-39" value="Сохранение&lt;br&gt;истории" style="whiteSpace=wrap;html=1;rounded=1;" parent="5usyHx1cdEVdQFqIunDD-2" vertex="1">
+          <mxGeometry x="335" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="5usyHx1cdEVdQFqIunDD-2" source="5usyHx1cdEVdQFqIunDD-42" target="5usyHx1cdEVdQFqIunDD-27" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-42" value="Уведомление клиента о невозможности бронирование" style="whiteSpace=wrap;html=1;rounded=1;" parent="5usyHx1cdEVdQFqIunDD-2" vertex="1">
+          <mxGeometry x="510" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5usyHx1cdEVdQFqIunDD-49" value="Коненц" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;rounded=1;" parent="5usyHx1cdEVdQFqIunDD-2" vertex="1">
+          <mxGeometry x="695" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H9zFzPK9AL8MQnQGc6E7-1" value="Напоминание за *" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="5usyHx1cdEVdQFqIunDD-2">
+          <mxGeometry x="575" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H9zFzPK9AL8MQnQGc6E7-4" value="" style="endArrow=none;html=1;rounded=0;startArrow=classic;startFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="5usyHx1cdEVdQFqIunDD-2" source="H9zFzPK9AL8MQnQGc6E7-6" target="H9zFzPK9AL8MQnQGc6E7-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="315" y="50" as="sourcePoint" />
+            <mxPoint x="785" y="180" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="665" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H9zFzPK9AL8MQnQGc6E7-5" value="Отмена брони &lt;br&gt;пользователем" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000099;fontSize=11;fontStyle=1" vertex="1" connectable="0" parent="H9zFzPK9AL8MQnQGc6E7-4">
+          <mxGeometry x="-0.35" y="-2" relative="1" as="geometry">
+            <mxPoint x="2" y="14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H9zFzPK9AL8MQnQGc6E7-6" value="Уведомление ресторана об отмене брони" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="5usyHx1cdEVdQFqIunDD-2">
+          <mxGeometry x="605" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="H9zFzPK9AL8MQnQGc6E7-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="5usyHx1cdEVdQFqIunDD-2" source="H9zFzPK9AL8MQnQGc6E7-10" target="H9zFzPK9AL8MQnQGc6E7-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H9zFzPK9AL8MQnQGc6E7-10" value="Ожидание времени визита" style="shape=tape;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="5usyHx1cdEVdQFqIunDD-2">
+          <mxGeometry x="575" y="340" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="H9zFzPK9AL8MQnQGc6E7-13" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;endFill=0;startArrow=classic;startFill=1;" edge="1" parent="5usyHx1cdEVdQFqIunDD-2" source="5usyHx1cdEVdQFqIunDD-49" target="H9zFzPK9AL8MQnQGc6E7-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="525" y="430" as="sourcePoint" />
+            <mxPoint x="575" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="755" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H9zFzPK9AL8MQnQGc6E7-14" value="" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="5usyHx1cdEVdQFqIunDD-2" target="H9zFzPK9AL8MQnQGc6E7-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="755" y="120" as="sourcePoint" />
+            <mxPoint x="575" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="755" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
