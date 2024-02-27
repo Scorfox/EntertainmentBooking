@@ -1,9 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Worker">
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
 
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyVersion>1.0.0227.12856</AssemblyVersion>
+    <FileVersion>1.0.0227.12856</FileVersion>
   </PropertyGroup>
 	<ItemGroup>
 		<Using Include="System" />
